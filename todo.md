@@ -1,0 +1,6 @@
+- стабы для dev-разработки без соединения
+- ESLint
+- Промисы поменять на async/await
+- proxies
+- transformers
+- @flow

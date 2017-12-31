@@ -7,40 +7,40 @@ This is intended as a starting point for medium/big sized projects but also as a
 ## Features
 
 * Server Side Rendering
-	* Async data fetching before rendering
-	* Client hydration
-	* Return the HTTP code you want
+  * Async data fetching before rendering
+  * Client hydration
+  * Return the HTTP code you want
 * Routing with vue-router
 * State management with vuex
 * Internazionalization with vue-i18n
-	* Static/Compile-time i18n
-	* Dynamic/Runtime i18n
+  * Static/Compile-time i18n
+  * Dynamic/Runtime i18n
 * Head management
-	* Title and meta tags support
+  * Title and meta tags support
 * 404 Page
-	* Returns 404 HTTP code
+  * Returns 404 HTTP code
 * Progressive Web App (WIP)
-	* Install to home screen
+  * Install to home screen
 * Offline support (WIP)
 * Graceful error handling
-	* Catch errors and handle them with ease
+  * Catch errors and handle them with ease
 * Build process managed by Webpack
-	* Vue Single File Components
-	* Write Javascript in ES6, Babel will transpile
-	* Write style in Sass, just because plain CSS is boring
-	* Write templates in pug, just because plain HTML is verbose
-	* Code splitting and dynamic loading
-		* Separate the requirements from your code
-	* Automatic generation of Service Worker
-	* Uglify and minify your JS
-		* Only 56kB for loading all the home page.
-	* Much more
+  * Vue Single File Components
+  * Write Javascript in ES6, Babel will transpile
+  * Write style in Sass, just because plain CSS is boring
+  * Write templates in pug, just because plain HTML is verbose
+  * Code splitting and dynamic loading
+    * Separate the requirements from your code
+  * Automatic generation of Service Worker
+  * Uglify and minify your JS
+    * Only 56kB for loading all the home page.
+  * Much more
 * Tests
-	* Unit tests
-		* Test components with avoriaz
-		* Test Vuex actions and mutations
-	* E2E tests
-		* Test UI interaction with Nightwatch
+  * Unit tests
+    * Test components with avoriaz
+    * Test Vuex actions and mutations
+  * E2E tests
+    * Test UI interaction with Nightwatch
 * Fully customizable
 * In-depth documentation
 
@@ -48,10 +48,10 @@ This is intended as a starting point for medium/big sized projects but also as a
 
 * Find a better, shorter name for the project
 * Vuex/Store
-	* [Modularize the store](https://vuex.vuejs.org/en/modules.html)
-		* Do we need this?
+  * [Modularize the store](https://vuex.vuejs.org/en/modules.html)
+    * Do we need this?
 * Transform into a `vue-cli` template
-	* Is it worth?
+  * Is it worth?
 
 ## Docs
 

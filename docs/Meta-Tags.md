@@ -10,10 +10,10 @@ For example:
 
 ```javascript
 meta() {
-	return {
-		title: "Home",
-		description: "This is the meta description for the home page"
-	}
+  return {
+    title: "Home",
+    description: "This is the meta description for the home page"
+  }
 }
 ```
 
@@ -42,7 +42,7 @@ Open [index.template.html](../src/index.template.html), find the `head` and add 
 Open the [metaInfo mixin](../src/mixins/metaInfo.js), find the declaration of `clientMetaInfoMixin` and add inside the conditional check the JS needed to update the meta tag in the browser, in our case
 ```javascript
 document.querySelector("meta[name=keywords]")
-	.setAttribute("content", meta.keywords)
+  .setAttribute("content", meta.keywords)
 ```
 
 **Components**

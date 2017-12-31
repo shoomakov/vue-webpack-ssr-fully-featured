@@ -14,7 +14,7 @@ Yes, we use **tabs over spaces**. This is because with tabs, everyone can choose
 
 * We are trying to follow [BEM naming conventions](http://getbem.com/naming/).
 * Avoid identifiers (`id="..."`).
-	* The only `id` permitted right now is `#app` for the mounting point of the webapp
+  * The only `id` permitted right now is `#app` for the mounting point of the webapp
 * Views should have a `view--ViewName` class in their root tag.
 * Components should have a `ComponentName` class in their root tag.
 

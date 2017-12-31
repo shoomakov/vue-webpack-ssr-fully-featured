@@ -10,10 +10,10 @@ The interesting part in `entry-server.js`:
 // which is resolved when the action is complete and store state has been
 // updated.
 Promise.all(matchedComponents.map((component) => {
-	return component.asyncData && component.asyncData({
-		store,
-		route: router.currentRoute
-	})
+  return component.asyncData && component.asyncData({
+    store,
+    route: router.currentRoute
+  })
 })).then(....)
 ```
 

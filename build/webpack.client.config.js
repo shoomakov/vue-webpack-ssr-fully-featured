@@ -12,78 +12,78 @@ const VueSSRClientPlugin = require("vue-server-renderer/client-plugin")
 // minify options to be used in production mode
 // https://github.com/kangax/html-minifier#options-quick-reference
 const minifyOptions = {
-	collapseWhitespace: true,
-	removeComments: true,
-	ignoreCustomComments: [/vue-ssr-outlet/]
+  collapseWhitespace: true,
+  removeComments: true,
+  ignoreCustomComments: [/vue-ssr-outlet/]
 }
 
 const clientConfig = merge(base, {
-	plugins: [
-		// strip dev-only code in Vue source
-		new webpack.DefinePlugin({
-			"process.env.VUE_ENV": "'client'"
-		}),
-		// generate output HTML
-		new HTMLPlugin({
-			template: "src/index.template.html",
-			minify: config.isProduction ? minifyOptions : {}
-		}),
-		new VueSSRClientPlugin()
-	]
+  plugins: [
+    // strip dev-only code in Vue source
+    new webpack.DefinePlugin({
+      "process.env.VUE_ENV": "'client'"
+    }),
+    // generate output HTML
+    new HTMLPlugin({
+      template: "src/index.template.html",
+      minify: config.isProduction ? minifyOptions : {}
+    }),
+    new VueSSRClientPlugin()
+  ]
 })
 
 if (config.isProduction) {
-	clientConfig.plugins.push(
-		// minify JS
-		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false
-			}
-		}),
-		// auto generate service worker
-		new SWPrecachePlugin({
-			cacheId: "vue-webpack-ssr-fully-featured",
-			filename: "service-worker.js",
-			minify: true,
+  clientConfig.plugins.push(
+    // minify JS
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    // auto generate service worker
+    new SWPrecachePlugin({
+      cacheId: "vue-webpack-ssr-fully-featured",
+      filename: "service-worker.js",
+      minify: true,
 
-			staticFileGlobs: [
-				"dist/**.css",
-				"dist/**.js",
-				"dist/img/**/*"
-			],
+      staticFileGlobs: [
+        "dist/**.css",
+        "dist/**.js",
+        "dist/img/**/*"
+      ],
 
-			runtimeCaching: [{
-				urlPattern: /\/.*/,
-				handler: "networkFirst"
-			}],
+      runtimeCaching: [{
+        urlPattern: /\/.*/,
+        handler: "networkFirst"
+      }],
 
-			dontCacheBustUrlsMatching: /./,
-			navigateFallback: "/"
-		})
-	)
+      dontCacheBustUrlsMatching: /./,
+      navigateFallback: "/"
+    })
+  )
 }
 
 if(!config.isTesting) {
-	clientConfig.plugins.push(
-		// extract vendor chunks for better caching
-		// https://github.com/Narkoleptika/webpack-everything/commit/b7902f60806cf40b9d1abf8d6bb2a094d924fff7
-		new webpack.optimize.CommonsChunkPlugin({
-			name: "vendor",
-			minChunks: function(module) {
-				return module.context && module.context.indexOf("node_modules") !== -1
-			}
-		}),
-		// any other js goes here
-		new webpack.optimize.CommonsChunkPlugin({
-			name: "manifest"
-		})
-	)
+  clientConfig.plugins.push(
+    // extract vendor chunks for better caching
+    // https://github.com/Narkoleptika/webpack-everything/commit/b7902f60806cf40b9d1abf8d6bb2a094d924fff7
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      minChunks: function(module) {
+        return module.context && module.context.indexOf("node_modules") !== -1
+      }
+    }),
+    // any other js goes here
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "manifest"
+    })
+  )
 }
 
 if(config.isProduction) {
-	clientConfig.plugins.push(
-			new webpack.optimize.ModuleConcatenationPlugin()
-	)
+  clientConfig.plugins.push(
+      new webpack.optimize.ModuleConcatenationPlugin()
+  )
 }
 
 module.exports = clientConfig
