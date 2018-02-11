@@ -1,3 +1,4 @@
+// @flow
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { sync } from 'vuex-router-sync'
@@ -6,9 +7,10 @@ import { createStore } from './store'
 import { createRouter } from './router'
 
 import App from './App.vue'
-
-
 import metaInfo from './mixins/metaInfo'
+
+import * as main from '../i18n/en.json'
+
 Vue.mixin(metaInfo)
 
 // allow i18n for components
@@ -16,9 +18,7 @@ Vue.use(VueI18n)
 
 // we use "primaryLanguage" as a key because it does not really matter
 // we can do this since the file is loaded using the `LANGUAGE_FILENAME` key
-const messages = {
-  'main': require(`./../i18n/${LANGUAGE_MAIN_FILENAME}.json`)
-}
+const messages = { main }
 const i18n = new VueI18n({
   locale: 'main',
   messages
@@ -43,7 +43,7 @@ export function createApp(ssrContext) {
     store,
     i18n,
     ssrContext,
-    render: h => h(App)
+    render: h => h(App),
   })
 
   // expose the app, the router and the store.
@@ -51,4 +51,3 @@ export function createApp(ssrContext) {
   // different depending on whether we are in a browser or on the server.
   return { app, router, store }
 }
-

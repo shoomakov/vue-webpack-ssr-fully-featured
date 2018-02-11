@@ -1,0 +1,13 @@
+[ignore]
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+module.name_mapper.extension='vue' -> '<PROJECT_ROOT>/flow/EmptyModule.js.flow'
+module.ignore_non_literal_requires=false
+
+[strict]

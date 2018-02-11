@@ -2,7 +2,7 @@ import * as types from './mutation-types'
 import axios from 'plugins/axios'
 
 export default {
-  fetchExampleData: ({commit}) => {
+  fetchExampleData: ({ commit }) => {
     return axios
       .get('https://api.livecoin.net/exchange/ticker?currencyPair=BTC/USD')
       .then((response) => {

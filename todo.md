@@ -1,6 +1,6 @@
 - стабы для dev-разработки без соединения
-- ESLint
+- ESLint with flow
 - Промисы поменять на async/await
-- proxies
+- proxies / auth
 - transformers
 - @flow
