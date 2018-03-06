@@ -7,12 +7,17 @@
 
 <script>
 export default {
-	name: "Login",
-	meta() {
-		return {
-			title: "Login",
-			description: "This is the meta description for the login page"
-		}
-	}
+  name: 'Login',
+
+  meta () {
+    return {
+      title: 'Login',
+      description: 'This is the meta description for the login page'
+    }
+  },
+
+  mounted () {
+    this.$store.dispatch('auth/login')
+  }
 }
 </script>

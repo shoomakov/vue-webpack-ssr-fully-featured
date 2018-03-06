@@ -38,7 +38,7 @@ if (config.isProduction) {
 			compress: {
 				warnings: false
 			}
-		}),
+		})
 	)
 }
 
@@ -59,9 +59,9 @@ if(!config.isTesting) {
 	)
 }
 
-if(config.isProduction) {
+if (config.isProduction) {
 	clientConfig.plugins.push(
-			new webpack.optimize.ModuleConcatenationPlugin()
+		new webpack.optimize.ModuleConcatenationPlugin()
 	)
 }
 

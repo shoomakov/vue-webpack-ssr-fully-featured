@@ -1,0 +1,40 @@
+.alert {
+  position: fixed;
+  z-index: 10000000;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  border: 5px solid $cream;
+  padding: 10px 20px;
+  font-size: 18px;
+  width: 380px;
+  box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.2);
+  &[data-type="warning"] {
+    border-color: $yellow;
+  }
+  &[data-type="info"] {
+    border-color: $blue;
+  }
+  &[data-type="success"] {
+    border-color: $green;
+  }
+  &[data-type="fail"] {
+    border-color: $red;
+  }
+
+  &.slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+  &.slide-fade-leave-active {
+    transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  &.slide-fade-enter, .slide-fade-leave-to
+    /* .slide-fade-leave-active до версии 2.1.8 */ {
+    transform: translateX(380px);
+    opacity: 0;
+  }
+
+  li {
+    margin-bottom: 15px !important;
+  }
+}

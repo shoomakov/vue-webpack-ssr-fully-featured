@@ -1,7 +1,7 @@
 export default {
-	computed: {
-		error() {
-			return this.$store.state.error
-		}
-	}
+  computed: {
+    error () {
+      return this.$store.state.error
+    }
+  }
 }

@@ -1,0 +1,17 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/config-chain/test/broken.json
+
+[include]
+
+[libs]
+definitions/
+
+[lints]
+deprecated-declare-exports=off
+
+[options]
+module.name_mapper='^\.\./svg-icons\/.*$' -> 'any'
+module.name_mapper.extension='vue' -> '<PROJECT_ROOT>/types/EmptyModule.js.flow'
+esproposal.decorators=ignore
+
+[strict]

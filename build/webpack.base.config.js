@@ -1,14 +1,15 @@
 const path = require("path")
 const webpack = require("webpack")
 
-const config = require("../config")
+const config = require('../config')
 
 const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin")
 
 const commonPlugins = [
-	new webpack.DefinePlugin({
-		"process.env.NODE_ENV": JSON.stringify(config.nodeEnv),
-		"PRODUCTION": config.isProduction
+  new webpack.DefinePlugin({
+		'process.env.NODE_ENV': JSON.stringify(config.nodeEnv),
+		'process.env.API_LOCATION': JSON.stringify(config.api),
+		'PRODUCTION': config.isProduction
 	})
 ]
 
